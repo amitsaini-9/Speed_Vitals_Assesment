@@ -30,11 +30,14 @@ const Graph: React.FC<GraphProps> = ({ metric, device }) => {
 
         console.log("X Data:", xData);
         console.log("Y Data:", yData);
-
+        const metricName =
+          metric === "cls"
+            ? "Cumulative Layout Shift"
+            : "Largest Contentful Paint";
         setChartOptions({
           title: {
-            text: `${metric.toUpperCase()} - ${device.toUpperCase()}`,
-            left: "center",
+            text: `${metricName.toUpperCase()} - ${device.toUpperCase()}`,
+            left: "left",
           },
           tooltip: {
             trigger: "axis",
